@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaApp CI/CD Pipeline</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container">
+        <h1 th:text="${appName}">JavaApp CI/CD Pipeline</h1>
+        <p class="subtitle">Real-Time CI/CD Pipeline for Java Application &mdash; Jenkins · SonarQube · OWASP · Docker · Trivy · Tomcat/Apache</p>
+
+        <div class="card">
+            <p><strong>Version:</strong> <span th:text="${version}">1.0.0</span></p>
+            <p><strong>Server time:</strong> <span th:text="${time}">-</span></p>
+        </div>
+
+        <p class="footer">Deployed successfully via the CI/CD pipeline 🚀</p>
+    </div>
+</body>
+</html>
