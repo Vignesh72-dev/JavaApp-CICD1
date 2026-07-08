@@ -118,7 +118,7 @@ pipeline {
         stage('12. Deploy WAR to Tomcat / Apache Server') {
             steps {
                 sh """
-                    sudo cp ${WORKSPACE_WAR} ${TOMCAT_WEBAPPS}/petclinic.war
+                    cp ${WORKSPACE_WAR} ${TOMCAT_WEBAPPS}/petclinic.war
                 """
             }
         }
