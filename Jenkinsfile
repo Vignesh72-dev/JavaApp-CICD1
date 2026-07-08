@@ -8,7 +8,7 @@ pipeline {
 
     environment {
         SCANNER_HOME     = tool 'sonar-scanner'
-        DOCKERHUB_USER   = 'VigneshNataraj'          // <-- change me
+        DOCKERHUB_USER   = 'vigneshnataraj'          // <-- change me
         IMAGE_NAME       = "${DOCKERHUB_USER}/javaapp-cicd"
         IMAGE_TAG        = "${env.BUILD_NUMBER}"
         TOMCAT_WEBAPPS   = '/opt/apache-tomcat-9.0.65/webapps'
