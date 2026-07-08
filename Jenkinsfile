@@ -25,7 +25,7 @@ pipeline {
         stage('1. Checkout Source Code') {
             steps {
                 git branch: 'main',
-                    url: 'https://github.com/<your-username>/JavaApp-CICD.git',
+                    url: 'https://github.com/Vignesh72-dev/JavaApp-CICD1.git',
                     credentialsId: 'github-cred'
             }
         }
@@ -133,7 +133,7 @@ pipeline {
             emailext (
                 subject: "SUCCESS: Build #${env.BUILD_NUMBER} - ${env.JOB_NAME}",
                 body: "Good news! The pipeline for ${env.JOB_NAME} build #${env.BUILD_NUMBER} completed successfully.\n\nCheck it: ${env.BUILD_URL}",
-                to: 'you@example.com',
+                to: 'natarajvicky72@gmail.com',
                 attachLog: true
             )
         }
@@ -141,7 +141,7 @@ pipeline {
             emailext (
                 subject: "FAILED: Build #${env.BUILD_NUMBER} - ${env.JOB_NAME}",
                 body: "The pipeline for ${env.JOB_NAME} build #${env.BUILD_NUMBER} failed.\n\nCheck it: ${env.BUILD_URL}",
-                to: 'you@example.com',
+                to: 'natarajvicky72@gmail.com',
                 attachLog: true
             )
         }
