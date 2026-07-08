@@ -99,7 +99,7 @@ pipeline {
 
         stage('10. Push Image to DockerHub') {
             steps {
-                withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker') {
+                withDockerRegistry(credentialsId: 'docker-cred') {
                     sh "docker push ${IMAGE_NAME}:${IMAGE_TAG}"
                     sh "docker push ${IMAGE_NAME}:latest"
                 }
