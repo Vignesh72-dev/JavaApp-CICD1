@@ -134,7 +134,7 @@ pipeline {
                 subject: "SUCCESS: Build #${env.BUILD_NUMBER} - ${env.JOB_NAME}",
                 body: "Good news! The pipeline for ${env.JOB_NAME} build #${env.BUILD_NUMBER} completed successfully.\n\nCheck it: ${env.BUILD_URL}",
                 to: 'natarajvicky72@gmail.com',
-                attachLog: true
+                
             )
         }
         failure {
@@ -142,7 +142,7 @@ pipeline {
                 subject: "FAILED: Build #${env.BUILD_NUMBER} - ${env.JOB_NAME}",
                 body: "The pipeline for ${env.JOB_NAME} build #${env.BUILD_NUMBER} failed.\n\nCheck it: ${env.BUILD_URL}",
                 to: 'natarajvicky72@gmail.com',
-                attachLog: true
+                
             )
         }
     }
