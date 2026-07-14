@@ -70,8 +70,10 @@ pipeline {
 
         stage('6. OWASP Dependency Check') {
             steps {
-                dependencyCheck additionalArguments: '--scan ./ --format HTML --format XML',
-                                 odcInstallation: 'DP-Check'
+                withCredentials([string(credentialsId: 'nvd-api-key', variable: 'NVD_API_KEY')]) {
+                    dependencyCheck additionalArguments: "--scan ./ --format HTML --format XML --nvdApiKey ${NVD_API_KEY}",
+                                    odcInstallation: 'DP-Check'
+                }
                 dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
             }
         }
@@ -117,9 +119,9 @@ pipeline {
 
         stage('12. Deploy WAR to Tomcat / Apache Server') {
             steps {
-                sh """
-                    cp ${WORKSPACE_WAR} ${TOMCAT_WEBAPPS}/petclinic.war
-                """
+                script {
+                    def warFile = sh(script: "ls target/*.war | head -1", returnStdout: true).trim()
+                    sh "cp ${warFile} ${TOMCAT_WEBAPPS}/petclinic.war"
             }
         }
     }
