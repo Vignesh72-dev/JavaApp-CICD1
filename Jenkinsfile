@@ -119,13 +119,10 @@ pipeline {
 
         stage('12. Deploy WAR to Tomcat / Apache Server') {
             steps {
-                script {
-                    def warFile = sh(script: "ls target/*.war | head -1", returnStdout: true).trim()
-                    sh "cp ${warFile} ${TOMCAT_WEBAPPS}/petclinic.war"
-                }
+                sh "sudo /bin/cp ${WORKSPACE_WAR} ${TOMCAT_WEBAPPS}/petclinic.war"
             }
         }
-    }    
+        
 
     post {
         always {
