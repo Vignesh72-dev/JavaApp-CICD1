@@ -123,7 +123,7 @@ pipeline {
             }
         }
         
-
+    }
     post {
         always {
             echo 'Pipeline finished. Cleaning up dangling docker images...'
